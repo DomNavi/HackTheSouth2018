@@ -6,7 +6,7 @@ public class ImageHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		//bla
 	}
 	
 	// Update is called once per frame
