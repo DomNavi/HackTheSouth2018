@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 653643745}
   - component: {fileID: 653643746}
   - component: {fileID: 653643747}
+  - component: {fileID: 653643748}
   m_Layer: 0
   m_Name: MAIN
   m_TagString: Untagged
@@ -311,8 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   debugText: {fileID: 1151939581}
-  cameraPane: {fileID: 0}
   backgroundSprite: {fileID: 562889464}
+  eManager: {fileID: 0}
 --- !u!114 &653643747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee0696fc2d942c1448d1160202ff7c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &653643748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653643744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dd1ac8bce41604788bed130c5814a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &994661313

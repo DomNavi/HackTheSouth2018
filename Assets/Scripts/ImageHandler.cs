@@ -11,7 +11,8 @@ public class ImageHandler : MonoBehaviour {
 	void Start () {
 
         int[] data = new int[] { 0, 0, 255, 0, 0, 255, 0, 0, 255, 0, 0, 255 };
-        Mat img = new Mat(2,2, CV_8UC3, data);
+        Mat img = new Mat(2,2, DepthType.Cv8U, 3);
+        img.SetTo(data);
 
         CvInvoke.CvtColor(img, img, ColorConversion.Bgr2Gray);
 
