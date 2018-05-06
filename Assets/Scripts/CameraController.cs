@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
     private WebCamTexture webcamTexture = null;
     public SpriteRenderer backgroundSprite;
     private EdgeManager eManager;
+    public int Threshold = 100;
 
     // Use this for initialization
     void Start() {
@@ -41,10 +42,21 @@ public class CameraController : MonoBehaviour {
         Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
         backgroundSprite.sprite = sprite;
 
-        eManager.DoMagic(imagePixels, webcamTexture.width, webcamTexture.height);
+        Color32[] colors = eManager.ApplyOperator(texture);
+        Color32[] colorsBefore = texture.GetPixels32();
+
+        for(int i = 0; i < colors.Length; i++) {
+            if(colors[i].r > Threshold) {
+                colorsBefore[i].r = 255;
+                colorsBefore[i].g = 0;
+                colorsBefore[i].b = 0;
+            }
+        }
+        texture.SetPixels32(colorsBefore);
+        texture.Apply();
 
         // Extracting edges.
-        List<List<Vector2>> edges = eManager.ExtractEdges(imagePixels, webcamTexture.width, webcamTexture.height);
+        eManager.ExtractEdges(imagePixels, webcamTexture.width, webcamTexture.height);
 
     }
 
